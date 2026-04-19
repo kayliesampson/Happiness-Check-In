@@ -1,4 +1,6 @@
 # Daily Check-In
+<img width="1178" height="450" alt="Screenshot 2026-04-19 at 5 38 30 PM" src="https://github.com/user-attachments/assets/6c0eb175-5b84-4719-9602-ef4678474c8a" />
+
 
 An interactive digital version of the Action for Happiness Daily Check-In practice.
 
