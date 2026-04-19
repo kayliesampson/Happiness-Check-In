@@ -29,9 +29,3 @@ Then open:
 3. Open http://localhost:8025 and select the Daily Check-In email.
 4. Click the email link.
 5. Complete and submit the check-in.
-
-## Implementation Notes
-
-This project intentionally avoids application dependencies. The backend uses Node's built-in HTTP, filesystem, crypto, and network modules. The frontend is plain HTML/CSS/JavaScript so the repository stays easy to clone and run.
-
-The local SMTP implementation is deliberately small and targets Mailpit for assignment verification. In production, this should be replaced with a mature email service/provider integration.

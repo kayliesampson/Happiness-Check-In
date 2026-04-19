@@ -159,12 +159,12 @@ async function loadCheckIn() {
 }
 
 function renderStart() {
-  const firstName = state.user?.name ? `, ${escapeHtml(state.user.name)}` : "";
+  const greeting = state.user?.name ? `Hi, ${escapeHtml(state.user.name)}` : "Hi";
   app.className = "shell checkin-wrap";
   app.innerHTML = html`
     <section class="checkin-panel start-panel">
       <div>
-        <p class="step-kicker">Daily Check-In${firstName}</p>
+        <p class="step-kicker">${greeting}</p>
         <h1>Ready to begin?</h1>
         <p>
           This will take a few quiet minutes. You will breathe, reflect, name
@@ -195,7 +195,6 @@ function progressHtml() {
 
 function renderStep() {
   const current = steps[state.step];
-  const firstName = state.user?.name ? `, ${escapeHtml(state.user.name)}` : "";
   app.className = "shell checkin-wrap";
 
   if (state.savedSubmission) {
@@ -223,7 +222,6 @@ function renderStep() {
       ${progressHtml()}
       <div class="step">
         <div>
-          <p class="step-kicker">Step ${state.step + 1} of ${steps.length}${firstName}</p>
           <h1>${current.title}</h1>
           <p>${current.prompt}</p>
           <div class="actions">
@@ -304,7 +302,7 @@ function renderComplete() {
           <h1>Your check-in is saved.</h1>
           <p>Thanks for taking a few minutes to arrive, notice, appreciate, and choose a positive next step.</p>
           <div class="actions">
-            <a class="primary" href="/">Send another check-in</a>
+            <a class="primary" href="https://actionforhappiness.org/">Visit Action for Happiness</a>
           </div>
         </div>
         <div class="summary" aria-label="Your responses">

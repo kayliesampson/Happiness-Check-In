@@ -184,10 +184,7 @@ function buildEmail({ to, name, token }) {
 Here is your Daily Check-In.
 
 Take a few minutes to breathe, reflect, notice gratitude, and set an intention:
-${link}
-
-Wishing you a steady day,
-Daily Check-In`;
+${link}`;
 
   const html = `<!doctype html>
 <html>
@@ -204,7 +201,6 @@ Daily Check-In`;
       If the button does not open, use this link:<br>
       <a href="${link}" target="_blank" rel="noopener noreferrer" style="color:#392E44;">${link}</a>
     </p>
-    <p style="color:#392E44;">Wishing you a steady day,<br>Daily Check-In</p>
   </body>
 </html>`;
 

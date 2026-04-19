@@ -1,5 +1,8 @@
 # Reflection
 
+## Personal
+I was experiencing a lot of joy building this :)
+
 ## Trade-offs
 
 I chose a small dependency-free Node application instead of a full React framework. React would have made the interactive check-in familiar to build, but for a 90-minute assignment the main risk is setup and infrastructure friction rather than component complexity. Plain JavaScript keeps the repo easy to clone, quick to inspect, and simple to run with Docker Compose.
