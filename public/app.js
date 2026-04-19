@@ -11,8 +11,13 @@ const state = {
     gratitude: "",
     intention: ""
   },
+  breathReady: false,
+  breathTimerId: null,
   savedSubmission: null
 };
+
+const BREATH_CYCLE_MS = 7000;
+const REQUIRED_BREATH_CYCLES = 3;
 
 const steps = [
   {
@@ -65,6 +70,12 @@ function setMessage(target, text, isError = false) {
   element.className = `message${isError ? " error" : ""}`;
   element.textContent = text;
   element.hidden = false;
+}
+
+function clearBreathTimer() {
+  if (!state.breathTimerId) return;
+  clearTimeout(state.breathTimerId);
+  state.breathTimerId = null;
 }
 
 function renderSignup() {
@@ -179,6 +190,8 @@ function renderStart() {
 
   document.querySelector("#startButton").addEventListener("click", () => {
     state.step = 0;
+    state.breathReady = false;
+    clearBreathTimer();
     renderStep();
   });
 }
@@ -196,6 +209,7 @@ function progressHtml() {
 function renderStep() {
   const current = steps[state.step];
   app.className = "shell checkin-wrap";
+  clearBreathTimer();
 
   if (state.savedSubmission) {
     renderComplete();
@@ -226,7 +240,7 @@ function renderStep() {
           <p>${current.prompt}</p>
           <div class="actions">
             ${state.step > 0 ? `<button class="secondary" id="backButton" type="button">Back</button>` : ""}
-            <button class="primary" id="nextButton" type="button">
+            <button class="primary" id="nextButton" type="button"${current.key === "breathe" && !state.breathReady ? " hidden" : ""}>
               ${state.step === steps.length - 1 ? "Submit check-in" : "Continue"}
             </button>
           </div>
@@ -243,6 +257,14 @@ function renderStep() {
     textarea.addEventListener("input", (event) => {
       state.responses[current.key] = event.target.value;
     });
+  }
+
+  if (current.key === "breathe" && !state.breathReady) {
+    state.breathTimerId = setTimeout(() => {
+      state.breathReady = true;
+      state.breathTimerId = null;
+      document.querySelector("#nextButton")?.removeAttribute("hidden");
+    }, BREATH_CYCLE_MS * REQUIRED_BREATH_CYCLES);
   }
 
   document.querySelector("#backButton")?.addEventListener("click", () => {
@@ -298,7 +320,6 @@ function renderComplete() {
       ${progressHtml()}
       <div class="step">
         <div>
-          <p class="step-kicker">Complete</p>
           <h1>Your check-in is saved.</h1>
           <p>Thanks for taking a few minutes to arrive, notice, appreciate, and choose a positive next step.</p>
           <div class="actions">
