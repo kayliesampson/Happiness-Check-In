@@ -72,10 +72,9 @@ function renderSignup() {
   app.innerHTML = html`
     <section class="hero">
       <div>
-        <p class="eyebrow">Action for Happiness practice</p>
         <h1>Daily Check-In</h1>
         <p class="lede">
-          A gentle email-led practice for pausing, noticing how you are, naming
+          A gentle practice for pausing, noticing how you are, naming
           gratitude, and choosing one positive intention for the day.
         </p>
         <div class="practice-strip" aria-label="Check-in steps">
@@ -171,12 +170,6 @@ function renderStart() {
           This will take a few quiet minutes. You will breathe, reflect, name
           one thing you are grateful for, and set a positive intention for today.
         </p>
-        <div class="start-list" aria-label="Check-in steps">
-          <span>Breathe</span>
-          <span>Reflect</span>
-          <span>Gratitude</span>
-          <span>Intention</span>
-        </div>
         <div class="actions">
           <button class="primary" id="startButton" type="button">Start check-in</button>
         </div>

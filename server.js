@@ -191,20 +191,20 @@ Daily Check-In`;
 
   const html = `<!doctype html>
 <html>
-  <body style="font-family: Arial, Helvetica, sans-serif; color: #162033; line-height: 1.5; background: #f4f9ff; padding: 24px;">
-    <h1 style="color: #23577d;">Your Daily Check-In</h1>
+  <body style="font-family: Campton, 'Avenir Next', Avenir, Montserrat, Arial, Helvetica, sans-serif; color: #392E44; line-height: 1.5; background: #EBE8E4; padding: 24px;">
+    <h1 style="color: #392E44;">Your Daily Check-In</h1>
     <p>${htmlGreeting}</p>
     <p>Take a few minutes to breathe, reflect, notice gratitude, and set an intention.</p>
     <p>
-      <a href="${link}" target="_blank" rel="noopener noreferrer" style="background:#2f6f9f;color:white;padding:12px 16px;border-radius:6px;text-decoration:none;display:inline-block;">
+      <a href="${link}" target="_blank" rel="noopener noreferrer" style="background:#ff474f;color:white;padding:12px 16px;border:1px solid #ff474f;border-radius:6px;text-decoration:none;display:inline-block;font-weight:700;">
         Start check-in
       </a>
     </p>
-    <p style="color:#5e6f86;font-size:14px;">
+    <p style="color:#392E44;font-size:14px;">
       If the button does not open, use this link:<br>
-      <a href="${link}" target="_blank" rel="noopener noreferrer" style="color:#23577d;">${link}</a>
+      <a href="${link}" target="_blank" rel="noopener noreferrer" style="color:#392E44;">${link}</a>
     </p>
-    <p style="color:#5e6f86;">Wishing you a steady day,<br>Daily Check-In</p>
+    <p style="color:#392E44;">Wishing you a steady day,<br>Daily Check-In</p>
   </body>
 </html>`;
 
