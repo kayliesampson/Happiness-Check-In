@@ -30,14 +30,6 @@ Then open:
 4. Click the email link.
 5. Complete and submit the check-in.
 
-## Local Development Without Docker
-
-If you have Node 20+ and Mailpit running on `localhost:1025`:
-
-```bash
-npm start
-```
-
 ## Implementation Notes
 
 This project intentionally avoids application dependencies. The backend uses Node's built-in HTTP, filesystem, crypto, and network modules. The frontend is plain HTML/CSS/JavaScript so the repository stays easy to clone and run.
