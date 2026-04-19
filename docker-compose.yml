@@ -1,0 +1,24 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      APP_BASE_URL: http://localhost:3000
+      SMTP_HOST: mailpit
+      SMTP_PORT: 1025
+      DATA_DIR: /app/data
+    volumes:
+      - daily-check-in-data:/app/data
+    depends_on:
+      - mailpit
+
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+
+volumes:
+  daily-check-in-data:
